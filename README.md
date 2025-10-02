@@ -1,38 +1,55 @@
-Role Name
-=========
+# Ansible Role: Git
 
-A brief description of the role goes here.
+An Ansible role to install and configure Git.
 
-Requirements
-------------
+## Description
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role installs Git on various Linux distributions and allows for global configuration of the user name, email, and default branch name.
 
-Role Variables
---------------
+## Requirements
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+- Ansible 2.9 or higher.
 
-Dependencies
-------------
+## Role Variables
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-Example Playbook
-----------------
+| Variable                  | Default Value         | Description                           |
+| ------------------------- | --------------------- | ------------------------------------- |
+| `git_user_name`           | `"John Doe"`          | The user name to configure globally.  |
+| `git_user_email`          | `"johndoe@example.com"` | The user email to configure globally. |
+| `git_default_branch_name` | `"main"`              | The default branch name for new repos.|
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+## Dependencies
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+None.
 
-License
--------
+## Example Playbook
 
-BSD
+Including an example of how to use your role (for instance, with variables passed in) is always nice for users too:
 
-Author Information
-------------------
+```yaml
+- hosts: servers
+  roles:
+    - role: ansible-role-git
+      vars:
+        git_user_name: "Your Name"
+        git_user_email: "your.email@example.com"
+        git_default_branch_name: "main"
+```
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+## Supported Platforms
+
+This role has been tested on the following platforms:
+
+- Debian family (Debian, Ubuntu)
+- RedHat family (CentOS, Fedora, RHEL)
+- Archlinux family
+
+## License
+
+MIT
+
+## Author Information
+
+This role was created in 2025 by [your name].

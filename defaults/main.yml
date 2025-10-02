@@ -1,3 +1,5 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# defaults file for git
+# defaults file for ansible-role-git
+git_user_name: "John Doe"
+git_user_email: "johndoe@example.com"
+git_default_branch_name: "main"

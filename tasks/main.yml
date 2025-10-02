@@ -1,3 +1,25 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# tasks file for git
+# tasks file for ansible-role-git
+- name: Include installation tasks
+  ansible.builtin.include_tasks: install.yml
+
+- name: Configure git user name
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: "{{ git_user_name }}"
+  when: git_user_name is defined
+
+- name: Configure git user email
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: "{{ git_user_email }}"
+  when: git_user_email is defined
+
+- name: Configure git default branch name
+  community.general.git_config:
+    name: init.defaultBranch
+    scope: global
+    value: "{{ git_default_branch_name }}"
+  when: git_default_branch_name is defined

@@ -1,0 +1,21 @@
+---
+# tasks file for git installation
+- name: Install git (Debian family)
+  ansible.builtin.apt:
+    name: git
+    state: present
+    update_cache: true
+  when: ansible_facts['os_family'] | lower == 'debian'
+
+- name: Install git (RedHat family)
+  ansible.builtin.dnf:
+    name: git
+    state: present
+  when: ansible_facts['os_family'] | lower == 'redhat'
+
+- name: Install git (Archlinux family)
+  community.general.pacman:
+    name: git
+    state: present
+    update_cache: true
+  when: ansible_facts['os_family'] | lower == 'archlinux'
