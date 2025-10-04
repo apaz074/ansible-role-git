@@ -1,6 +1,9 @@
+
 #SPDX-License-Identifier: MIT-0
 galaxy_info:
-  author: your name
+  author: apaz074
+  role_name: git
+  namespace: apaz074
   description: your role description
   company: your company (optional)
 
